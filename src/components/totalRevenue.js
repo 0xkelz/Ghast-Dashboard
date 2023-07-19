@@ -62,7 +62,7 @@ const Revenue = () => {
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-600">
           Revenue
         </span>{" "}
-        Distributed
+        Collected
       </h1>
       <div className="w-2/3 h-auto mx-auto mt-6 border-[1px] border-orange-700 rounded-lg flex align-middle justify-center py-8 lg:mt-16 lg:py-16">
         <h1 className="text-white font-medium text-2xl text-center lg:text-5xl">

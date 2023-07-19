@@ -1,4 +1,5 @@
 import Header from "./header";
+import LendingMarkets from "./lendingMarkets";
 import Revenue from "./totalRevenue";
 import Tvl from "./tvl";
 
@@ -8,6 +9,7 @@ const Main = () => {
       <Header />
       <Tvl />
       <Revenue />
+      <LendingMarkets />
     </div>
   );
 };
