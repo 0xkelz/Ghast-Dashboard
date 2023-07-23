@@ -89,7 +89,7 @@ const Tvl = () => {
         TVL
       </h1>
       <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-pink-700 to-orange-500 font-medium text-3xl text-center mt-4 lg:text-6xl lg:mt-8">
-        {tvl}
+        {tvl}$
       </h1>
       <h1 className="text-white font-medium text-3xl text-center mt-12 lg:text-6xl lg:mt-24">
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-700 to-orange-500">
