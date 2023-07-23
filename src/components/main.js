@@ -7,19 +7,6 @@ import ghastLogo from "../images/ghastLogo.svg";
 const Main = () => {
   return (
     <div className="px-3">
-      <a href="https://ghastprotocol.com/">
-        <div className="flex justify-center mt-4">
-          <img
-            src={ghastLogo}
-            alt="usdc-logo"
-            style={{ width: "50px", height: "50px" }}
-            className="block"
-          />
-          <h1 className="font-bold text-3xl text-transparent bg-clip-text bg-gradient-to-b from-red-600 to-orange-400 my-auto ml-3 tracking-wider lg:text-5xl">
-            GHA
-          </h1>
-        </div>
-      </a>
       <Header />
       <Tvl />
       <Revenue />
