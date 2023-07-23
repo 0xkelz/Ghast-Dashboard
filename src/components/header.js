@@ -11,7 +11,7 @@ const Header = () => {
         ]}
         speed={5}
         wrapper="span"
-        cursor={true}
+        cursor={false}
         repeat={0}
         style={{ display: "inline-block" }}
       />
