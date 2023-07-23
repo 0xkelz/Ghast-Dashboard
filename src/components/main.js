@@ -2,7 +2,6 @@ import Header from "./header";
 import LendingMarkets from "./lendingMarkets";
 import Revenue from "./totalRevenue";
 import Tvl from "./tvl";
-import ghastLogo from "../images/ghastLogo.svg";
 
 const Main = () => {
   return (
