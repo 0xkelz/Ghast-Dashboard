@@ -1,7 +1,7 @@
 import { useContract, useContractRead } from "@thirdweb-dev/react";
 import { usdtLendContract, usdtLendABI } from "../contracts/USDTLend";
 import { useEffect, useState } from "react";
-import { formatUnits, formatEther } from "ethers/lib/utils";
+import { formatUnits } from "ethers/lib/utils";
 import usdtLogo from "../images/usdt-icon.png";
 
 const UsdtLend = () => {

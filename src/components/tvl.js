@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 
 const Tvl = () => {
   const [utcObjectsArray, setUtcObjectsArray] = useState([]);
+  const [tvl, setTvl] = useState(0);
 
   async function fetchData() {
     try {
@@ -61,16 +62,53 @@ const Tvl = () => {
       });
   }, []);
 
+  async function fetchTvl() {
+    try {
+      const response = await fetch("https://api.llama.fi/tvl/ghast-protocol");
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      throw error;
+    }
+  }
+  useEffect(() => {
+    fetchTvl().then((tvl) => {
+      setTvl(tvl.toLocaleString());
+    });
+  });
+
   return (
     <div>
       <h1 className="text-white font-medium text-3xl text-center mt-8 lg:text-6xl lg:mt-16">
-        14-Day Total Value Locked{" "}
+        TVL
+      </h1>
+      <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-pink-700 to-orange-500 font-medium text-3xl text-center mt-4 lg:text-6xl lg:mt-8">
+        {tvl}
+      </h1>
+      <h1 className="text-white font-medium text-3xl text-center mt-12 lg:text-6xl lg:mt-24">
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-700 to-orange-500">
+          14-Day
+        </span>{" "}
+        Total Value Locked{" "}
         <span className="font-normal text-xs text-blue-700 underline">
-          (<a href="https://defillama.com/protocol/ghast-protocol">Source</a>)
+          (
+          <a
+            href="https://defillama.com/protocol/ghast-protocol"
+            target="blank"
+          >
+            Source
+          </a>
+          )
         </span>
       </h1>
       <div className=" h-48 flex justify-center mt-10 lg:h-96">
-        <ResponsiveContainer width="90%" height="100%">
+        <ResponsiveContainer width="80%" height="100%">
           <AreaChart data={utcObjectsArray}>
             <defs>
               <linearGradient id="color" x1={0} y1={0} x2={0} y2={1}>
