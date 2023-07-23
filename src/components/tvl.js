@@ -34,8 +34,9 @@ const Tvl = () => {
       .then((data) => {
         const dateTvl = data.chainTvls.Arbitrum.tvl;
         const toUTC = (arr) => {
+          const maxLength = arr.length - 16;
           const utcObjectsArray = [];
-          for (let i = 18; i > 0; i--) {
+          for (let i = arr.length - 1; i >= maxLength; i--) {
             const date = new Date(arr[i].date * 1000);
             const month = date.getMonth() + 1;
             const day = date.getDate();
@@ -45,7 +46,7 @@ const Tvl = () => {
 
             utcObjectsArray.push({
               utcDate,
-              tvl: Number(dateTvl[i].totalLiquidityUSD),
+              tvl: Number(arr[i].totalLiquidityUSD),
             });
           }
           // Sort the objects based on the UTC dates
@@ -62,7 +63,7 @@ const Tvl = () => {
 
   return (
     <div>
-      <h1 className="text-white font-medium text-3xl text-center mt-16 lg:text-6xl">
+      <h1 className="text-white font-medium text-3xl text-center mt-8 lg:text-6xl lg:mt-16">
         14-Day Total Value Locked{" "}
         <span className="font-normal text-xs text-blue-700 underline">
           (<a href="https://defillama.com/protocol/ghast-protocol">Source</a>)

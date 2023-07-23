@@ -34,17 +34,14 @@ const Revenue = () => {
   useEffect(() => {
     fetchData().then((data) => {
       setPriceETH(data.pairs[0].priceUsd);
-      console.log(priceETH);
     });
   }, [setPriceETH, priceETH]);
 
   useEffect(() => {
     if (isLoading) {
-      console.log(distributedETH);
     } else {
       setDistributedETH(formatUnits(data));
       setDistributedUSD(distributedETH * priceETH);
-      console.log("Distributed: " + distributedUSD + "$");
     }
   }, [
     data,

@@ -1,14 +1,14 @@
 import { useContract, useContractRead } from "@thirdweb-dev/react";
-import { usdcLendContract, usdcLendABI } from "../contracts/USDCLend";
+import { wethLendABI, wethLendContract } from "../contracts/WETHLend";
 import { useEffect, useState } from "react";
 import { formatUnits } from "ethers/lib/utils";
-import usdcLogo from "../images/usd-coin-usdc-logo.png";
+import ethLogo from "../images/ethereum-logo.png";
 
-const UsdcLend = () => {
+const WethLend = () => {
   const [deposits, setDeposits] = useState(0);
   const [borrows, setBorrows] = useState(0);
   const [utilization, setUtilization] = useState(0);
-  const { contract: usdcLend } = useContract(usdcLendContract, usdcLendABI);
+  const { contract: usdcLend } = useContract(wethLendContract, wethLendABI);
 
   const { data: totalDeposits, isLoading: isLoadingDeposits } = useContractRead(
     usdcLend,
@@ -47,20 +47,20 @@ const UsdcLend = () => {
   ]);
 
   return (
-    <div className="flex justify-center ">
-      <div className="border-4 border-blue-700 rounded-lg flex justify-center flex-col items-center p-8 w-80 lg:w-[26rem]">
+    <div className="flex justify-center">
+      <div className="border-4 border-blue-400 rounded-lg flex justify-center flex-col items-center p-8 w-80 lg:w-[26rem]">
         <img
-          src={usdcLogo}
+          src={ethLogo}
           alt="usdc-logo"
-          style={{ width: "50px", height: "50px" }}
+          style={{ width: "50px", height: "50px", borderRadius: "100%" }}
           className="block"
         />
-        <h2 className="text-transparent bg-clip-text bg-gradient-to-r from-blue-800 to-blue-500 font-bold text-2xl mt-2 mb-4">
-          USDC
+        <h2 className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-300 font-bold text-xl mt-2 mb-4">
+          WETH
         </h2>
         <h2 className="text-xl text-slate-300">Utilization rate:</h2>
         <h2 className="text-4xl mt-4">
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-500 font-semibold ">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-300 font-semibold ">
             {utilization.toLocaleString()}%
           </span>
         </h2>
@@ -70,17 +70,17 @@ const UsdcLend = () => {
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-600 font-semibold">
             {deposits.toLocaleString()}
           </span>{" "}
-          <span className="text-base">USDC</span>
+          <span className="text-base">ETH</span>
         </h3>
         <h3 className="text-md text-slate-300 mt-2 lg:text-xl">
           Total borrows:{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-600 font-semibold">
             {borrows.toLocaleString()}
           </span>{" "}
-          <span className="text-base">USDC</span>
+          <span className="text-base">ETH</span>
         </h3>
       </div>
     </div>
   );
 };
-export default UsdcLend;
+export default WethLend;
