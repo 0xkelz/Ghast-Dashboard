@@ -14,11 +14,9 @@ const Header = () => {
       </a>
       <h1 className="text-white font-bold  text-center mt-5">
         <TypeAnimation
-          className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-600 text-[3rem] lg:text-[6rem]"
+          className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-600 text-[2.7rem] lg:text-[6rem]"
           sequence={[
-            "Dashboard", // Types 'One'
-            1000,
-            "Dashboard.",
+            "Dashboard", // Types 'One'
           ]}
           speed={5}
           wrapper="span"
