@@ -35,23 +35,34 @@ const Tvl = () => {
       .then((data) => {
         const dateTvl = data.chainTvls.Arbitrum.tvl;
         const toUTC = (arr) => {
-          const maxLength = arr.length - 16;
+          const maxLength = arr.length - 14;
+          console.log(dateTvl);
           const utcObjectsArray = [];
-          for (let i = arr.length - 1; i >= maxLength; i--) {
+          for (let i = maxLength; i <= arr.length - 1; i++) {
             const date = new Date(arr[i].date * 1000);
             const month = date.getMonth() + 1;
             const day = date.getDate();
+            const hour = date.getHours();
             const utcDate = `${String(day).padStart(2, "0")}-${String(
               month
             ).padStart(2, "0")}`;
-
             utcObjectsArray.push({
+              hour,
               utcDate,
               tvl: Number(arr[i].totalLiquidityUSD),
             });
           }
-          // Sort the objects based on the UTC dates
-          utcObjectsArray.sort((a, b) => a.utcDate.localeCompare(b.utcDate));
+          // Sort the objects based on the UTC dates and hours
+          utcObjectsArray.sort((a, b) => {
+            const dateA = new Date(
+              `2023-${a.utcDate}T${String(a.hour).padStart(2, "0")}:00:00`
+            );
+            const dateB = new Date(
+              `2023-${b.utcDate}T${String(b.hour).padStart(2, "0")}:00:00`
+            );
+            return dateA.getTime() - dateB.getTime();
+          });
+
           setUtcObjectsArray(utcObjectsArray);
         };
         toUTC(dateTvl);
@@ -79,7 +90,12 @@ const Tvl = () => {
   }
   useEffect(() => {
     fetchTvl().then((tvl) => {
-      setTvl(tvl.toLocaleString());
+      setTvl(
+        tvl.toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        })
+      );
     });
   });
 
@@ -89,7 +105,11 @@ const Tvl = () => {
         TVL
       </h1>
       <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-pink-700 to-orange-500 font-medium text-3xl text-center mt-4 lg:text-6xl lg:mt-8">
-        {tvl}$
+        {tvl.toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        })}
+        $
       </h1>
       <h1 className="text-white font-medium text-3xl text-center mt-12 lg:text-6xl lg:mt-24">
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-700 to-orange-500">
@@ -145,7 +165,10 @@ const CustomTooltip = ({ active, payload, label }) => {
         <h2 className="">
           Tvl: {""}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-600">
-            {"$" + payload[0].value.toLocaleString()}
+            {payload[0].value.toLocaleString(undefined, {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+            }) + "$"}
           </span>
         </h2>
       </div>

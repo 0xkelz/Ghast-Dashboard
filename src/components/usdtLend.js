@@ -61,21 +61,33 @@ const UsdtLend = () => {
         <h2 className="text-xl text-slate-300">Utilization rate:</h2>
         <h2 className="text-4xl mt-4">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-green-300 font-semibold ">
-            {utilization.toString().toLocaleString().slice(0, 6)}%
+            {utilization
+              .toLocaleString(undefined, {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+              })
+              .slice(0, 6)}
+            %
           </span>
         </h2>
         <br></br>
         <h3 className="text-md text-slate-300 lg:text-xl">
           Total deposits:{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-700 to-green-600 font-semibold">
-            {Number(formatUnits(deposits, 6)).toLocaleString()}
+            {Number(formatUnits(deposits, 6)).toLocaleString(undefined, {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+            })}
           </span>{" "}
           <span className="text-base">USDT</span>
         </h3>
         <h3 className="text-md text-slate-300 mt-2 lg:text-xl">
           Total borrows:{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-700 to-green-600 font-semibold">
-            {Number(formatUnits(borrows, 6)).toLocaleString()}
+            {Number(formatUnits(borrows, 6)).toLocaleString(undefined, {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+            })}
           </span>{" "}
           <span className="text-base">USDT</span>
         </h3>
