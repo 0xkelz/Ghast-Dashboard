@@ -64,12 +64,16 @@ const Revenue = () => {
       <div className="w-3/4 h-auto mx-auto mt-6 border-[1px] border-orange-700 rounded-lg flex align-middle justify-center py-8 lg:mt-16 lg:py-16">
         <h1 className="text-white font-medium text-2xl text-center lg:text-5xl">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-600">
-            {distributedETH}
+            {distributedETH.toLocaleString(undefined, { 
+           minimumFractionDigits: 2, 
+           maximumFractionDigits: 2, }
           </span>{" "}
           ETH <span className="text-slate-300">/ </span>
           <span className="text-xl lg:text-3xl">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
-              {distributedUSD.toLocaleString()}
+              {distributedUSD.toLocaleString(undefined, { 
+           minimumFractionDigits: 2, 
+           maximumFractionDigits: 2, }
             </span>{" "}
             $
           </span>
