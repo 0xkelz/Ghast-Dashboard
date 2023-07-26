@@ -101,22 +101,19 @@ const Tvl = () => {
 
   return (
     <div>
-      <h1 className="text-white font-medium text-3xl text-center mt-8 lg:text-6xl lg:mt-16">
+      {/* <h1 className="text-white font-medium text-3xl text-center mt-8 lg:text-6xl lg:mt-16">
         TVL
-      </h1>
-      <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-pink-700 to-orange-500 font-medium text-3xl text-center mt-4 lg:text-6xl lg:mt-8">
-        {tvl.toLocaleString(undefined, {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
-        })}
-        $
-      </h1>
-      <h1 className="text-white font-medium text-3xl text-center mt-12 lg:text-6xl lg:mt-24">
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-700 to-orange-500">
-          14-Day
-        </span>{" "}
+      </h1> */}
+      <h1 className="text-slate-500 font-medium text-xl text-center mt-4 lg:text-3xl lg:mt-12">
+        {/* <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-700 to-orange-500">
+          {tvl.toLocaleString(undefined, {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          })}
+          $
+        </span>{" "} */}
         Total Value Locked{" "}
-        <span className="font-normal text-xs text-blue-700 underline">
+        <span className="font-normal text-[0.60rem] text-blue-700 underline lg:text-sm">
           (
           <a
             href="https://defillama.com/protocol/ghast-protocol"
@@ -127,7 +124,14 @@ const Tvl = () => {
           )
         </span>
       </h1>
-      <div className=" h-48 flex justify-center mt-10 lg:h-96">
+      <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-pink-700 to-orange-500 font-medium text-3xl text-center mt-0 lg:text-6xl lg:mt-2">
+        {tvl.toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        })}
+        $
+      </h1>
+      <div className=" h-48 flex justify-center mt-10 lg:h-96 lg:mt-16">
         <ResponsiveContainer width="80%" height="100%">
           <AreaChart data={utcObjectsArray}>
             <defs>
@@ -164,7 +168,7 @@ const CustomTooltip = ({ active, payload, label }) => {
         <h4>{label}</h4>
         <h2 className="">
           Tvl: {""}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-600">
+          <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-600">
             {payload[0].value.toLocaleString(undefined, {
               minimumFractionDigits: 2,
               maximumFractionDigits: 2,

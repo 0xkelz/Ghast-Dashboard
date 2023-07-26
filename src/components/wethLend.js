@@ -48,7 +48,7 @@ const WethLend = () => {
 
   return (
     <div className="flex justify-center">
-      <div className="border-4 border-blue-400 rounded-lg flex justify-center flex-col items-center p-8 w-80 lg:w-[26rem]">
+      <div className="ease-in-out duration-500 bg-blue-500 bg-opacity-25 rounded-lg flex justify-center flex-col items-center p-8 w-80 lg:w-[26rem] hover:bg-opacity-40">
         <img
           src={ethLogo}
           alt="usdc-logo"
@@ -71,7 +71,7 @@ const WethLend = () => {
         <br></br>
         <h3 className="text-md text-slate-300 lg:text-xl">
           Total deposits:{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-600 font-semibold">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-300 font-semibold">
             {deposits.toLocaleString(undefined, {
               minimumFractionDigits: 2,
               maximumFractionDigits: 2,
@@ -81,7 +81,7 @@ const WethLend = () => {
         </h3>
         <h3 className="text-md text-slate-300 mt-2 lg:text-xl">
           Total borrows:{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-600 font-semibold">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-300 font-semibold">
             {borrows.toLocaleString(undefined, {
               minimumFractionDigits: 2,
               maximumFractionDigits: 2,

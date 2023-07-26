@@ -48,19 +48,19 @@ const UsdtLend = () => {
 
   return (
     <div className="flex justify-center ">
-      <div className="border-4 border-green-700 rounded-lg flex justify-center flex-col items-center p-8 w-80 lg:w-[26rem]">
+      <div className="ease-in-out duration-500 bg-green-700 bg-opacity-20 rounded-lg flex justify-center flex-col items-center p-8 w-80 lg:w-[26rem] hover:bg-opacity-40">
         <img
           src={usdtLogo}
           alt="usdc-logo"
           style={{ width: "50px", height: "50px", borderRadius: "100%" }}
           className="block"
         />
-        <h2 className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-green-300 font-bold text-2xl mt-2 mb-4">
+        <h2 className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-green-300 font-bold text-2xl mt-2 mb-4">
           USDT
         </h2>
         <h2 className="text-xl text-slate-300">Utilization rate:</h2>
         <h2 className="text-4xl mt-4">
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-green-300 font-semibold ">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-green-200 font-semibold ">
             {utilization
               .toLocaleString(undefined, {
                 minimumFractionDigits: 2,
@@ -73,7 +73,7 @@ const UsdtLend = () => {
         <br></br>
         <h3 className="text-md text-slate-300 lg:text-xl">
           Total deposits:{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-700 to-green-600 font-semibold">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-green-200 font-semibold">
             {Number(formatUnits(deposits, 6)).toLocaleString(undefined, {
               minimumFractionDigits: 2,
               maximumFractionDigits: 2,
@@ -83,7 +83,7 @@ const UsdtLend = () => {
         </h3>
         <h3 className="text-md text-slate-300 mt-2 lg:text-xl">
           Total borrows:{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-700 to-green-600 font-semibold">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-green-200 font-semibold">
             {Number(formatUnits(borrows, 6)).toLocaleString(undefined, {
               minimumFractionDigits: 2,
               maximumFractionDigits: 2,
